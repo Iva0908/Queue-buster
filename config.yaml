@@ -1,0 +1,9 @@
+path: C:\Users\prasa\PycharmProjects\Iva2\train\ # dataset root dir
+train: train\images  # train images (relative to 'path')
+val: train\images  # val images (relative to 'path')
+
+# Classes
+names:
+  0: 'apple'
+  1: 'banana'
+  2: 'orange'

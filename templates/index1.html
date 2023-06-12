@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Object Detection</title>
+</head>
+<body>
+    <h1>Object Detection</h1>
+    {% if error %}
+        <p>{{ error }}</p>
+    {% endif %}
+
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="image" accept="image/*" required>
+        <input type="submit" value="Upload">
+    </form>
+
+    {% if image_path %}
+        <h2>Original Image</h2>
+        <img src="{{ image_path }}" alt="Original Image" width="500">
+    {% endif %}
+
+    {% if output_image_path %}
+        <h2>Annotated Image</h2>
+        <img src="{{ output_image_path }}" alt="Annotated Image" width="500">
+    {% endif %}
+
+    {% if console_output %}
+        <h2>Console Output</h2>
+        <pre class="output"></pre>
+    {% endif %}
+
+<script>
+        var sum = document.querySelector('.output');
+    var javascript_variable = "{{ console_output }}";
+        var output=0;
+        for (var i = 0; i < javascript_variable.length; i++) {
+    output += javascript_variable[i] === '2'? 10 :
+              javascript_variable[i] === '1' ? 20 :
+              javascript_variable[i] === '0' ? 30 :
+              0;
+}
+        sum.textContent = output;
+console.log(output);
+</script>
+</body>
+</html>

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <title>Welcome to Our Mart</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333333;
+        }
+
+        p {
+            color: #666666;
+            margin-bottom: 20px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .history_main{
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .hist1{
+            display: flex ;
+            flex-direction: column;
+        }
+
+        .hist2{
+            display: flex ;
+            flex-direction: column;
+        }
+
+        .hist3{
+            display: flex ;
+            flex-direction: column;
+        }
+
+        .carousel-item {
+            height: 400px;
+        }
+
+        .carousel-caption {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            color: #fff;
+            bottom: 0;
+            width: 70%;
+            text-align: center;
+        }
+
+        .carousel-caption h3 {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .carousel-caption p {
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .carousel-inner img {
+            width: 100%;
+        }
+
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 30px;
+            height: 30px;
+            font-size: 30px;
+
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            padding-top: 200px;
+            justify-content: center;
+        }
+        .carousel-control-next-icon {
+    background-color: transparent;
+    border: none;
+}
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-color: black;
+            border: none;
+            height: 49px;
+            width: 30px;
+        }
+
+        .carousel-indicators {
+            bottom: -40px;
+        }
+
+        .carousel-indicators li {
+            background-color: #bbb;
+            border-radius: 50%;
+            width: 10px;
+            height: 10px;
+            margin: 0 5px;
+        }
+
+        .carousel-indicators .active {
+            background-color: #333;
+        }
+       .file-container {
+    position: relative;
+        padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    margin-left:2rem;
+    margin-top:3rem;
+  }
+.file-container:hover{
+background-color: green;
+}
+  .file-input {
+    font-size: 0.9em;
+    position: absolute;
+    left: -9999px;
+  }
+  .file-input:hover{
+background-color: green;
+}
+
+  .file-text {
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: #fff;
+    cursor: pointer;
+  }
+  .file-text:hover{
+background-color: green;
+}
+     .custom-button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    margin-left:2rem;
+    margin-top:3rem;
+  }
+  .custom-button:hover{
+        background-color: green;
+    }
+
+
+.images{
+display:flex;
+flex-direction:coloumn;
+justify-content: space-around;
+margin-top:4rem;
+}
+.images_exp{
+display:flex;}
+.flask_image {
+    height: 300px;
+    width: 300px;
+    transition: transform 0.3s ease;
+  }
+.flask_image:hover {
+    transform: scale(1.5);
+  }
+  .sum{
+  display:flex;
+  margin-top:8rem;
+  font-size:22px;
+  justify-content: center;
+  }
+
+
+    </style>
+</head>
+<body>
+
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Slides -->
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{{image1_path}}" alt="Image 1">
+                <div class="carousel-caption">
+                    <h3>Image 1</h3>
+                    <p>This is the first image</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="{{ image2_path }}" alt="Image 2">
+                <div class="carousel-caption">
+                    <h3>Image 2</h3>
+                    <p>This is the second image</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="{{ image3_path }}" alt="Image 3">
+                <div class="carousel-caption">
+                    <h3>Image 3</h3>
+                    <p>This is the third image</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+
+    <div class="container">
+        <h1>Welcome to Our Mart</h1>
+        <p>Hi <span id="username"></span>! Your last shopping date was <span id="lastShoppingDate"></span>.</p>
+        <a href="products.html" class="button">Shop Now</a>
+    </div>
+
+    <div class="history_main">
+        <div class="hist1"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#263e0f}</style><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg>
+        <a href="products.html" class="button">HISTORY</a></div>
+        <div class="hist2" style="margin-left: 3rem;"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style >svg{fill:#263e0f}</style><path d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/></svg>
+       <form method="POST" enctype="multipart/form-data">
+  <label for="customFile" class="file-container">
+    <span class="file-text">Select File</span>
+    <input type="file" id="customFile" name="image" accept="image/*" class="file-input" required>
+  </label>
+      <input type="submit" value="Upload" class="custom-button">
+    </form></div>
+        <div class="hist3"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#38571a}</style><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg>        <a href="products.html" class="button">USER PROFILE</a></div>
+      </div>
+
+
+
+
+
+    {% if image_path %}
+        <div class="images">
+            <div class="images_exp">
+        <img src="{{ image_path }}" alt="Original Image"  class="flask_image"style="height: 300px; width: 300px;">
+    {% endif %}
+                </div>
+
+    {% if output_image_path %}
+            <div class="images_exp">
+        <img src="{{ output_image_path }}" alt="Annotated Image" class="flask_image" style="height: 300px; width: 300px;">
+        </div>
+    {% endif %}
+        </div>
+    {% if console_output %}
+    <div class="sum">
+       <span class="text_file">The total payable amount for your item is   <span class="output" style="font-weight: bold;font-size: 22px;
+"></span></span>
+    {% endif %}
+        </div>
+
+<script>
+        var sum = document.querySelector('.output');
+    var javascript_variable = "{{ console_output }}";
+        var output=0;
+        for (var i = 0; i < javascript_variable.length; i++) {
+    output += javascript_variable[i] === '2'? 40 :
+              javascript_variable[i] === '1' ? 10 :
+              javascript_variable[i] === '0' ? 30 :
+              0;
+}
+        sum.textContent = "   "+output;
+console.log(output);
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const fileInput = document.getElementById("customFile");
+    const fileText = document.querySelector(".file-text");
+
+    fileInput.addEventListener("change", function() {
+      if (fileInput.files.length > 0) {
+        fileText.textContent = fileInput.files[0].name;
+      } else {
+        fileText.textContent = "Select File";
+      }
+    });
+  });
+</script>
+
+    <script>
+        // JavaScript code to set the user's name and last shopping date
+        document.addEventListener("DOMContentLoaded", function() {
+            // Replace "John Doe" with the actual user's name
+            document.getElementById("username").textContent = "John Doe";
+
+            // Replace "May 30, 2023" with the actual last shopping date
+            document.getElementById("lastShoppingDate").textContent = "May 30, 2023";
+        });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+</html>

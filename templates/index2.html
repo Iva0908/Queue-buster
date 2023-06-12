@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Object Detection</title>
+</head>
+<body>
+    <h1>Object Detection</h1>
+    {% if error %}
+        <p>{{ error }}</p>
+    {% endif %}
+
+    <div>
+        <button id="upload-local-btn">Upload Image</button>
+        <button id="capture-btn">Capture Image</button>
+    </div>
+
+    <form id="upload-form" method="POST" enctype="multipart/form-data" style="display: none;">
+        <input type="file" id="image-input" name="image" accept="image/*" required>
+        <input type="submit" value="Upload">
+    </form>
+
+    <div id="camera-container" style="display: none;">
+        <video id="video-preview" width="500" height="375" autoplay></video>
+        <button id="capture-image-btn">Capture Image</button>
+    </div>
+
+    {% if image_path %}
+        <h2>Original Image</h2>
+        <img src="{{ image_path }}" alt="Original Image" width="500">
+    {% endif %}
+
+    {% if output_image_path %}
+        <h2>Annotated Image</h2>
+        <img src="{{ output_image_path }}" alt="Annotated Image" width="500">
+    {% endif %}
+
+    {% if console_output %}
+        <h2>Console Output</h2>
+        <pre class="output"></pre>
+    {% endif %}
+
+    <script>
+        var uploadLocalBtn = document.getElementById('upload-local-btn');
+        var captureBtn = document.getElementById('capture-btn');
+        var uploadForm = document.getElementById('upload-form');
+        var imageInput = document.getElementById('image-input');
+        var cameraContainer = document.getElementById('camera-container');
+        var video = document.getElementById('video-preview');
+        var captureImageBtn = document.getElementById('capture-image-btn');
+        var sumOutput = document.querySelector('.output');
+
+        uploadLocalBtn.addEventListener('click', function() {
+            uploadForm.style.display = 'block';
+            cameraContainer.style.display = 'none';
+        });
+
+        captureBtn.addEventListener('click', function() {
+            uploadForm.style.display = 'none';
+            cameraContainer.style.display = 'block';
+            startCamera();
+        });
+
+        // Check if the browser supports media devices and getUserMedia
+        function startCamera() {
+            if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+                // Access the camera stream
+                navigator.mediaDevices.getUserMedia({ video: true })
+                    .then(function(stream) {
+                        video.srcObject = stream;
+                        video.play();
+                    })
+                    .catch(function(error) {
+                        console.error('Error accessing the camera:', error);
+                    });
+            } else {
+                console.error('getUserMedia is not supported by this browser.');
+            }
+        }
+
+        captureImageBtn.addEventListener('click', function() {
+    var canvas = document.createElement('canvas');
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+    canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+
+    canvas.toBlob(function(blob) {
+        var formData = new FormData();
+        formData.append('image', blob, 'camera_image.jpg');
+
+        fetch('/upload_camera_image', {
+            method: 'POST',
+            body: formData
+        })
+        .then(function(response) {
+            console.log('Image uploaded successfully!');
+            // Handle the response if needed
+        })
+        .catch(function(error) {
+            console.error('Error uploading image:', error);
+        });
+    }, 'image/jpeg');
+});
+
+
+        // Calculate the sum of specific numbers
+        var javascriptVariable = "{{ console_output }}";
+        var output = 0;
+        for (var i = 0; i < javascriptVariable.length; i++) {
+            output += javascriptVariable[i] === '2' ? 40 :
+                      javascriptVariable[i] === '1' ? 20 :
+                      javascriptVariable[i] === '0' ? 30 :
+                      0;
+        }
+        sumOutput.textContent = output;
+        console.log(output);
+    </script>
+</body>
+</html>

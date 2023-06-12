@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+
+    <title>Welcome to Our Mart</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: auto;
+    background: linear-gradient(315deg, rgba(101,0,94,1) 3%, rgba(60,132,206,1) 38%, rgba(48,238,226,1) 68%, rgba(255,25,25,1) 98%);
+    animation: gradient 15s ease infinite;
+    background-size: 400% 400%;
+    background-attachment: fixed;
+        }
+@keyframes gradient {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+.wave {
+    background: rgb(255 255 255 / 25%);
+    border-radius: 1000% 1000% 0 0;
+    position: fixed;
+    width: 200%;
+    height: 12em;
+    animation: wave 10s -3s linear infinite;
+    transform: translate3d(0, 0, 0);
+    opacity: 0.8;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.wave:nth-of-type(2) {
+    bottom: -1.25em;
+    animation: wave 18s linear reverse infinite;
+    opacity: 0.8;
+}
+
+.wave:nth-of-type(3) {
+    bottom: -2.5em;
+    animation: wave 20s -1s reverse infinite;
+    opacity: 0.9;
+}
+
+@keyframes wave {
+    2% {
+        transform: translateX(1);
+    }
+
+    25% {
+        transform: translateX(-25%);
+    }
+
+    50% {
+        transform: translateX(-50%);
+    }
+
+    75% {
+        transform: translateX(-25%);
+    }
+
+    100% {
+        transform: translateX(1);
+    }
+}
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 1.2;
+  color: transparent;
+  -webkit-text-stroke: 2px #333333;
+}
+
+        p {
+            color: #666666;
+            margin-bottom: 20px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .history_main{
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .hist1{
+            display: flex ;
+            flex-direction: column;
+        }
+
+        .hist2{
+            display: flex ;
+            flex-direction: column;
+        }
+
+        .hist3{
+            display: flex ;
+            flex-direction: column;
+        }
+
+
+       .file-container {
+    position: relative;
+        padding: 10px 20px;
+    background-color: transparent;
+    color: black;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    margin-left:2rem;
+    transition: transform 0.3s ease;
+    margin-top:4rem;box-shadow: 0 0 10px rgba(0.3, 0.3, 0.3, 0.7);
+
+  }
+.file-container :hover{
+transform: scale(1.1);
+}
+  .file-input {
+    font-size: 0.9em;
+    position: absolute;
+    left: -9999px;
+  }
+  .file-input:hover{
+transform: scale(1.1);
+}
+
+  .file-text {
+    padding: 5px 10px;
+    background-color: transparent;
+    color: #fff;
+    cursor: pointer;
+  }
+  .file-text:hover{
+transform: scale(1.1);
+}
+     .custom-button {
+    padding: 10px 20px;
+    background-color: transparent;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    margin-left:2rem;
+    margin-top:6rem;
+    transition: transform 0.3s ease;
+box-shadow: 0 0 10px rgba(0.3, 0.3, 0.3, 0.7);
+  }
+  .custom-button:hover{
+        transform: scale(1.1);
+    }
+
+
+.images{
+display:flex;
+flex-direction:coloumn;
+justify-content: space-around;
+margin-top:4rem;
+}
+.images_exp{
+display:flex;}
+.flask_image {
+    height: 300px;
+    width: 300px;
+    transition: transform 0.3s ease;
+  }
+.flask_image:hover {
+    transform: scale(1.1);
+  }
+  .sum{
+  display:flex;
+  margin-top:3rem;
+  font-size:34px;
+  justify-content: center;
+  }
+  .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+.capture_button{
+display:flex;
+justify-content: center;
+            align-items: center;
+
+padding: 11px 20px;
+    background-color: transparent;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    margin-left:2rem;
+    margin-top:5.3rem;
+    transition: transform 0.3s ease;
+box-shadow: 0 0 10px rgba(0.3, 0.3, 0.3, 0.7);}
+.capture_button:hover{
+        transform: scale(1.1);
+        }
+
+    </style>
+</head>
+<body style="background-color: #d2fcd4;">
+ <div>
+     <div class="wave"></div>
+     <div class="wave"></div>
+     <div class="wave"></div>
+  </div>
+<div class="container">
+            <h1>Cashierless Counter</h1>
+    </div>
+  {% if image_path %}
+        <div class="images">
+<!--           <div class="images_exp">-->
+<!--        <img src="{{ image_path }}" alt="Original Image"  class="flask_image"style="height: 300px; width: 300px;">-->
+<!--    {% endif %}-->
+<!--                </div>-->
+
+    {% if output_image_path %}
+            <div class="images_exp">
+        <img src="{{ output_image_path }}" alt="Annotated Image" class="flask_image" style="height: 450px; width: 600px;border-radius: 10%;box-shadow: 0 0 10px rgba(0.3, 0.3, 0.3, 0.7);
+">
+        </div>
+    {% endif %}
+        </div>
+
+     <div class="center">
+    <div class="history_main">
+       <form method="POST" enctype="multipart/form-data">
+  <label for="customFile" class="file-container">
+    <span class="file-text">Select File</span>
+    <input type="file" id="customFile" name="image" accept="image/*" class="file-input" required>
+  </label>
+      <input type="submit" value="Upload" class="custom-button">
+    </form>
+
+    </div>
+          <button onclick="window.location.href='/capture'" class="capture_button">Capture Image</button>
+      </div>
+    </div>
+    {% if console_output %}
+    <div class="sum">
+       <span class="text_file">The total payable amount for your item is   <span class="output" style="font-weight: bold;font-size: 34px;
+"></span></span>
+    {% endif %}
+        </div>
+
+
+<script>
+        var sum = document.querySelector('.output');
+    var javascript_variable = "{{ console_output }}";
+        var output=0;
+        for (var i = 0; i < javascript_variable.length; i++) {
+    output += javascript_variable[i] === '2'? 40 :
+              javascript_variable[i] === '1' ? 10 :
+              javascript_variable[i] === '0' ? 30 :
+              0;
+}
+        sum.textContent = "   "+output;
+console.log(output);
+</script>
+    <script type="text/javascript">
+        function captureImage() {
+            fetch('/capture')
+<!--                .then(response => response.text())-->
+<!--                .then(result => console.log(result))-->
+<!--                .catch(error => console.log('Error:', error));-->
+        }
+    </script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const fileInput = document.getElementById("customFile");
+    const fileText = document.querySelector(".file-text");
+
+    fileInput.addEventListener("change", function() {
+      if (fileInput.files.length > 0) {
+        fileText.textContent = fileInput.files[0].name;
+      } else {
+        fileText.textContent = "Select File";
+      }
+    });
+  });
+</script>
+
+    <script>
+        // JavaScript code to set the user's name and last shopping date
+        document.addEventListener("DOMContentLoaded", function() {
+            // Replace "John Doe" with the actual user's name
+            document.getElementById("username").textContent = "John Doe";
+
+            // Replace "May 30, 2023" with the actual last shopping date
+            document.getElementById("lastShoppingDate").textContent = "May 30, 2023";
+        });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+</html>
